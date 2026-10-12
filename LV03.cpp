@@ -63,3 +63,43 @@ using namespace std;
 //	}
 //	return 0;
 //}
+
+//DNA Paulo NN
+#include <stdio.h>
+#include <iostream>
+#include <string>
+using namespace std;
+bool kandidat(string DNA) {
+	if (DNA.length() >= 30 && DNA.length() <= 6) {
+		return false;
+	}
+	int brojacGC = 0;
+
+	for (int i = 0; i < DNA.length();i++) {
+		if (DNA[i] != 'A' && DNA[i] !='G' && DNA[i]!='C' && DNA[i]!='T') {
+			return false;
+			}
+		if (DNA[i] == 'G' || DNA[i] == 'C') {
+			brojacGC++;
+		}
+		}
+
+	if (brojacGC * 2 >= DNA.length()) {
+		return true;
+	}
+
+	return false;
+}
+
+int main() {
+	string dna;
+	cin >> dna;
+
+	if (kandidat(dna)) {
+		cout << "DA";
+	}
+	else {
+		cout << "NE";
+	}
+
+}
